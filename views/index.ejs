@@ -1,0 +1,60 @@
+<!DOCTYPE html >
+    <html lang="en">
+        <head>
+            <meta charset="UTF-8">
+                <title>Google Style Search</title>
+                <style>
+                    body {
+                        margin: 0;
+                    padding: 0;
+                    height: 100vh;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    background-color: #f8f9fa;
+                    font-family: Arial, sans-serif;
+    }
+
+                    .google-search {
+                        display: flex;
+                    width: 100%;
+                    max-width: 600px;
+                    padding: 10px 20px;
+                    border: 1px solid #dfe1e5;
+                    border-radius: 24px;
+                    box-shadow: 0 1px 6px rgba(32, 33, 36, 0.28);
+                    background-color: white;
+    }
+
+                    .google-search input[type="text"] {
+                        flex: 1;
+                    border: none;
+                    outline: none;
+                    font-size: 16px;
+    }
+
+                    .google-search button {
+                        border: none;
+                    background: none;
+                    font-size: 16px;
+                    color: #4285f4;
+                    cursor: pointer;
+    }
+
+                    .google-search button:hover {
+                        text-decoration: underline;
+    }
+                </style>
+        </head>
+        <body>
+
+            <form class="google-search" action="/short" method="post">
+                <input type="text" id="longUrl" name="longUrl" placeholder="Enter Long URL">
+                    <button type="submit">🔍</button>
+            </form>
+           <% if(shortUrl) { %>
+        <p>Short URL :- <a href="<%= shortUrl %>" target="_blank" />
+        <%= shortUrl %>
+        </p> <% } %>
+        </body> 
+    </html>

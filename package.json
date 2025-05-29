@@ -17,6 +17,10 @@
   "homepage": "https://github.com/ratneshgupta9292/URLShortner#readme",
   "description": "",
   "dependencies": {
-    "express": "^5.1.0"
+    "dotenv": "^16.5.0",
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "mongoose": "^8.15.1",
+    "router": "^2.2.0"
   }
 }
