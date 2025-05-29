@@ -1,0 +1,22 @@
+{
+  "name": "urlshortner",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ratneshgupta9292/URLShortner.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ratneshgupta9292/URLShortner/issues"
+  },
+  "homepage": "https://github.com/ratneshgupta9292/URLShortner#readme",
+  "description": "",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
