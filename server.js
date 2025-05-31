@@ -1,30 +1,20 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const dotenv = require('dotenv');
-const path = require('path');
-const db = require('./db');
-const { urlshorterController } = require("../URLShortner/Controllers/UrlController");
-// Load environment variables from .env
-dotenv.config();
-
-// Create Express app
+import express from 'express'
+//import mongoose from 'mongoose';
+import { shortUrl, getOriginalUrl } from "./Controllers/UrlController.js";
+import { connectDb } from './db.js';
 const app = express();
 
-// Middleware to parse JSON
-//app.use(bodyParser.json());
-app.use(express.json());
-
-// Set EJS as the view engine
-app.set('view engine', 'ejs');
-
-  // rendering the ejs file
-  app.get('/',(req,res)=>{
-    res.render("index.ejs", {shortUrl :null})
-  })
-app.post("/short", urlshorterController);
-// Start listening
- 
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`✅ Server is running on http://localhost:${PORT}`);
+app.use(express.urlencoded({ extended: true }))
+// rendering the ejs file // rendering the ejs file
+app.get('/', (req, res) => {
+  res.render("index.ejs", { shortUrl: null })
 });
+connectDb();
+// shorting url logic
+app.post('/short', shortUrl);
+
+app.get('/:shortCode', getOriginalUrl)
+
+const port = 3000;
+
+app.listen(port, () => console.log(`Server is running on port ${port}`));

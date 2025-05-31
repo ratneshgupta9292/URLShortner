@@ -1,16 +1,13 @@
-require('dotenv').config(); // make sure this is at the very top
-console.log("MONGO_URI:", process.env.MONGO_URI); // Debug line
+import mongoose from 'mongoose';
 
-const mongoose = require('mongoose');
-
-const connectDb = async () => {
-    try {
-        const conn = await mongoose.connect(process.env.MONGO_URI);
-        console.log(`MongoDB connected: ${conn.connection.host}`);
-    } catch (err) {
-        console.error("DB Error", err);
-        process.exit(1);
-    }
+export const connectDb = async () => {
+  try {
+    await mongoose.connect('mongodb://127.0.0.1:27017/shortUrl', {
+      useNewUrlParser: true,
+      useUnifiedTopology: true
+    });
+    console.log("MongoDB connected");
+  } catch (error) {
+    console.error("DB Connection Error:", error);
+  }
 };
-
-module.exports = connectDb;

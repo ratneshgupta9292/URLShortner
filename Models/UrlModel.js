@@ -1,14 +1,8 @@
-const mongoose = require('mongoose');
-// Define the User schema
-const userSchema = new mongoose.Schema({
-    shorCode: {
-        type: String,
-    },
-    longurl: {
-        type: String
-    }
-});
+import mongoose from "mongoose";
 
-// Export the model
-const Url = mongoose.model('shortURL', userSchema);
-module.exports = Url;
+const urlSchema = new mongoose.Schema({
+    shortCode:String,
+    longUrl:String
+})
+
+export const Url = mongoose.model("shortURL",urlSchema)
